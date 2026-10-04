@@ -34,9 +34,14 @@ Open any file in `viz/` directly in a browser; each page is self-contained.
   switching rules (including the HMM) tested on S&P 500 and bond index funds,
   1997 to 2026, with drawdown, recovery and regime charts.
 
+## Research
+
+The literature review behind the next round of model tests lives in [`docs/research/`](docs/research/). It includes a second-pass analysis of 12 papers on trend, execution, behavior, diversification, liquidity, and tail risk, plus an implementation spec that keeps new ideas behind explicit out-of-sample tests.
+
 ## Layout
 
 ```
+docs/   research notes and implementation specifications
 viz/    HTML visualization pages (self-contained, open in a browser)
 src/    models and data-feed code (HMM, signals, backtests)
 data/   local price caches (gitignored)
