@@ -10,10 +10,10 @@ This review extracts the pieces that can be falsified or implemented: equations,
 
 **Construction.** Odean defines
 
-$
+$$
 PGR = \frac{\text{realized gains}}{\text{realized gains}+\text{paper gains}},\qquad
 PLR = \frac{\text{realized losses}}{\text{realized losses}+\text{paper losses}}.
-$
+$$
 
 The core test is whether PGR exceeds PLR. The data cover 10,000 discount-brokerage accounts.
 
@@ -120,29 +120,29 @@ This is the most directly implementable execution paper in the set.
 
 **Model.** Expected returns depend on predictors (f_t):
 
-$
+$$
 r_{t+1}=Bf_t+u_{t+1},
-$
+$$
 
 and predictors mean-revert dynamically. Trading a change (Delta x_t) incurs quadratic cost
 
-$
+$$
 TC(\Delta x_t)=\tfrac12\Delta x_t'\Lambda\Delta x_t.
-$
+$$
 
 The dynamic solution separates the current position, an **aim portfolio**, and the speed of trading toward that aim.
 
 A useful simplified representation is
 
-$
+$$
 x_t=(1-\kappa)x_{t-1}+\kappa\,\text{aim}_t,\qquad 0<\kappa<1,
-$
+$$
 
 where (kappa) falls as trading costs rise and changes with risk aversion and predictability. The paper's "aim in front of the target" result can be represented as a weighted average of current and expected future Markowitz targets:
 
-$
+$$
 \text{aim}_t=z\,\text{Markowitz}_t+(1-z)E_t[\text{aim}_{t+1}],
-$
+$$
 
 so more persistent predictors receive more weight.
 
@@ -192,13 +192,13 @@ PDF: https://www.columbia.edu/~pt2238/papers/Tetlock_Media_Sentiment_JF.pdf
 
 **Canonical strategy.** For instrument (s), use the sign of its own trailing 12-month excess return and scale the position to 40% ex-ante annualized volatility:
 
-$
+$$
 r^{TSMOM,s}_{t,t+1}
 =
 \operatorname{sign}(r^s_{t-12,t})
 \frac{40\%}{\sigma^s_t}
 r^s_{t,t+1}.
-$
+$$
 
 The diversified factor equal-weights the resulting strategy returns across instruments available at time (t). The 40% instrument target is a normalization choice; diversification brings the realized portfolio volatility to roughly 12% annually in the 1985–2009 sample.
 
@@ -276,23 +276,23 @@ NBER: https://www.nber.org/papers/w13249
 
 **Carry construction.** A long foreign-currency position has payoff
 
-$
+$$
 z^L_{t+1}=(1+i_t^*)\frac{S_{t+1}}{S_t}-(1+i_t).
-$
+$$
 
 The carry trade chooses its sign from the interest differential:
 
-$
+$$
 z^C_{t+1}=\operatorname{sign}(i_t^*-i_t)z^L_{t+1}.
-$
+$$
 
 Under covered interest parity the same direction can be implemented using forwards.
 
 **Momentum construction.**
 
-$
+$$
 z^M_{t+1}=\operatorname{sign}(z^L_t)z^L_{t+1},
-$
+$$
 
 so the prior month's currency return sets next month's direction. The portfolio equally weights the currency-level trades.
 
@@ -344,26 +344,26 @@ DOI: https://doi.org/10.1093/rfs/hhm075
 
 **Core identity.** Start with a deliberately simple trend position proportional to cumulative price change:
 
-$
+$$
 \Pi_t=\lambda A_t(S_t-S_0),
-$
+$$
 
 with (A_t=1) for the simple derivation and daily price change (D_t). The next-period gain is
 
-$
+$$
 G_t=\Pi_{t-1}D_t.
-$
+$$
 
 Aggregating and rearranging yields the key identity
 
-$
+$$
 G_T=\frac{\lambda}{2}
 \left[(S_T-S_0)^2-\sum_{t=1}^{T}D_t^2\right].
-$
+$$
 
 In expectation, aggregate trend P&L is proportional to the difference between long-horizon and short-horizon realized variance. The paper extends the result to EMA-style trend filters. For an EMA implementation, averaged trend P&L can again be written as a long-timescale variance term minus a short-timescale variance term.
 
-**Empirical illustration.** In one S&P 500 futures illustration the authors use a trend scale around (	au=180) trading days and choose the risk coefficient so daily P&L volatility is around 1%. The exact number is an illustration, not a universal optimal lookback.
+**Empirical illustration.** In one S&P 500 futures illustration the authors use a trend scale around (tau=180) trading days and choose the risk coefficient so daily P&L volatility is around 1%. The exact number is an illustration, not a universal optimal lookback.
 
 **Interpretation.** Over the horizon on which the trend rule has time to establish a position, trend P&L becomes positively convex in the underlying long-horizon move. This helps explain why diversified CTAs can look like crisis protection.
 
