@@ -47,9 +47,9 @@ For the all-weather sleeve, 1/N is a benchmark, not a recommendation. For the ma
 
 Start with the least-parameterized version:
 
-[
+$
 m_t = \operatorname{sign}\left(\frac{P_t}{P_{t-12}}-1\right).
-]
+$
 
 At month-end (t):
 - (m_t>0): risk-on for month (t+1);
@@ -85,9 +85,9 @@ This prevents a change in model confidence from silently becoming an all-in/all-
 
 For a continuous target (a_t), test
 
-[
+$
 x_t=(1-\kappa)x_{t-1}+\kappa a_t,
-]
+$
 
 with a small predeclared grid such as (kappa\in\{0.25,0.5,1.0\}). The point of the grid is stability analysis, not selecting the best backtest point.
 
@@ -107,9 +107,9 @@ Threshold pairs must be fixed before the final evaluation window. Report how muc
 
 For every strategy report:
 
-[
+$
 \text{one-way turnover}_t = \frac12\sum_i |w_{i,t}-w_{i,t-1}|.
-]
+$
 
 Also report:
 - switches per calendar year;
@@ -161,9 +161,9 @@ For each pair of sleeves/strategies report:
 
 A simple lower-tail co-exceedance statistic is useful:
 
-[
+$
 C_q=P(R_A<Q_A(q),\ R_B<Q_B(q)),
-]
+$
 
 evaluated at a fixed (q), e.g. 10%. Compare the observed joint frequency with the product of marginal frequencies as a sanity check.
 
